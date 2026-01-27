@@ -1,0 +1,144 @@
+/* الإعدادات العامة */
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* القائمة العلوية */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d35400;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #d35400;
+}
+
+/* قسم الـ Hero */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+.btn {
+    background: #d35400;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* الخدمات */
+.section-title { text-align: center; margin: 50px 0; font-size: 2rem; }
+
+.services-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10%;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    border-bottom: 4px solid #d35400;
+}
+
+/* تصميم زر واتساب العائم */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* يظهر على اليسار لأن الموقع بالعربي */
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+    z-index: 10000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* تأثير تكبير بسيط عند التمرير */
+    background-color: #128c7e;
+}
+
+.whatsapp-float img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.whatsapp-float span {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* إخفاء النص في الشاشات الصغيرة جداً وترك الأيقونة فقط */
+@media (max-width: 480px) {
+    .whatsapp-float span {
+        display: none;
+    }
+    .whatsapp-float {
+        padding: 10px;
+        border-radius: 50%;
+    }
+    .whatsapp-float img {
+        margin-left: 0;
+    }
+}
