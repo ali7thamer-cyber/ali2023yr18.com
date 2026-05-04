@@ -3,299 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>علي ثامر كاظم - السيرة الذاتية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>السيرة الذاتية | علي ثامر كاظم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #ff4500; /* لون شراري - برتقالي محمر */
-            --secondary-color: #ff8c00;
-            --bg-dark: #0a0a0a;
-            --bg-card: #161616;
-            --text-white: #ffffff;
-            --text-gray: #b0b0b0;
+            /* وضع النهار (Default) */
+            --bg-color: #ffffff;
+            --sidebar-bg: #f0f8ff;
+            --text-color: #333333;
+            --accent-color: #00ccff; /* أزرق سمائي لامع */
+            --card-bg: #f9f9f9;
+            --shadow: rgba(0, 204, 255, 0.2);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Tajawal', sans-serif;
+        [data-theme="dark"] {
+            /* وضع الليل */
+            --bg-color: #000000;
+            --sidebar-bg: #111111;
+            --text-color: #ffffff;
+            --accent-color: #ff4500; /* أحمر شراري */
+            --secondary-accent: #ff8c00; /* برتقالي */
+            --card-bg: #1a1a1a;
+            --shadow: rgba(255, 69, 0, 0.4);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
         }
 
-        /* خلفية تأثير الشرار */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 69, 0, 0.05), transparent);
-            z-index: -1;
-        }
+        .container { display: grid; grid-template-columns: 350px 1fr; min-height: 100vh; }
 
-        .container {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            min-height: 100vh;
+        /* زر تحويل الوضع */
+        .theme-switch {
+            position: fixed; top: 20px; left: 20px; z-index: 1000;
+            background: var(--accent-color); color: white;
+            border: none; padding: 12px; border-radius: 50%; cursor: pointer;
+            box-shadow: 0 0 15px var(--shadow); font-size: 20px;
         }
 
         /* الجانب الأيمن - البروفايل */
         .sidebar {
-            background-color: var(--bg-card);
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-left: 2px solid var(--primary-color);
-            position: sticky;
-            top: 0;
-            height: 100vh;
+            background-color: var(--sidebar-bg); padding: 40px 20px;
+            display: flex; flex-direction: column; align-items: center;
+            border-left: 3px solid var(--accent-color); position: sticky; top: 0; height: 100vh;
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 0 20px var(--primary-color);
-            object-fit: cover;
-            margin-bottom: 20px;
+            width: 200px; height: 200px; border-radius: 50%;
+            border: 4px solid var(--accent-color); box-shadow: 0 0 25px var(--shadow);
+            object-fit: cover; margin-bottom: 25px; transition: var(--transition);
         }
 
-        .sidebar h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
-        }
+        .sidebar h2 { font-weight: 900; color: var(--accent-color); margin-bottom: 30px; text-align: center; }
 
-        .info-box {
-            width: 100%;
-            margin-top: 20px;
+        .info-card {
+            width: 100%; background: var(--card-bg); padding: 15px;
+            border-radius: 12px; margin-bottom: 15px; border-right: 4px solid var(--accent-color);
         }
-
-        .info-item {
-            margin-bottom: 15px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-        }
-
-        .info-item small {
-            display: block;
-            color: var(--secondary-color);
-            font-size: 12px;
-        }
-
-        .whatsapp-contact {
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #25d366;
-            padding: 10px 20px;
-            border-radius: 50px;
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .whatsapp-contact:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #25d366;
-        }
+        .info-card small { display: block; color: gray; font-size: 12px; }
 
         /* المحتوى الرئيسي */
-        .main-content {
-            padding: 40px;
-        }
+        .main-content { padding: 40px; }
 
-        section {
-            margin-bottom: 50px;
-        }
-
-        h2.section-title {
-            font-size: 28px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+        section { margin-bottom: 50px; }
+        h3.title { font-size: 26px; margin-bottom: 25px; border-bottom: 2px solid var(--accent-color); display: inline-block; }
 
         /* اللغات البرمجية */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--card-bg); padding: 25px; border-radius: 15px; text-align: center;
+            transition: var(--transition); border: 1px solid #333;
         }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent-color); box-shadow: 0 0 15px var(--shadow); }
+        .card i { font-size: 45px; color: var(--accent-color); margin-bottom: 10px; }
 
-        .skill-card {
-            background: var(--bg-card);
-            padding: 20px;
-            text-align: center;
-            border-radius: 15px;
-            border-bottom: 3px solid transparent;
+        /* الأوفيس وزين */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { background: var(--accent-color); color: white; padding: 8px 18px; border-radius: 50px; font-weight: bold; }
+        
+        .experience-box {
+            background: var(--card-bg); padding: 25px; border-radius: 15px;
+            border-right: 6px solid #2563eb; /* لون زين التقليدي */
+        }
+        /* الصور والشهادات */
+        .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .certs-grid img { width: 100%; border-radius: 10px; border: 2px solid #333; transition: 0.3s; }
+        .certs-grid img:hover { transform: scale(1.05); border-color: var(--accent-color); }
+
+        /* التواصل الاجتماعي */
+        .social-links { margin-top: auto; width: 100%; display: flex; flex-direction: column; gap: 10px; }
+        .social-item {
+            display: flex; align-items: center; gap: 12px; text-decoration: none;
+            color: var(--text-color); padding: 12px; border-radius: 8px; background: rgba(128,128,128,0.1);
             transition: 0.3s;
         }
-        .skill-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-10px);
-            background: #1a1a1a;
-        }
-
-        .skill-card i {
-            font-size: 40px;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        /* مهارات الأوفيس */
-        .office-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .tag {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-        }
-
-        /* قسم زين والشهادات */
-        .experience-card {
-            background: rgba(255, 69, 0, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            border-right: 5px solid var(--primary-color);
-            margin-bottom: 30px;
-        }
-
-        .cert-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .cert-img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            border: 1px solid #333;
-        }
-
-        .cert-img:hover {
-            transform: scale(1.05);
-            border-color: var(--primary-color);
-        }
+        .social-item.wa:hover { background: #25d366; color: white; }
+        .social-item.ig:hover { background: #e1306c; color: white; }
+        .social-item.tg:hover { background: #0088cc; color: white; }
+        .social-item i { font-size: 22px; }
 
         @media (max-width: 900px) {
             .container { grid-template-columns: 1fr; }
-            .sidebar { height: auto; position: relative; border-left: none; border-bottom: 2px solid var(--primary-color); }
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .sidebar { height: auto; position: relative; border-left: none; border-bottom: 3px solid var(--accent-color); }
         }
     </style>
 </head>
 <body>
 
+    <button class="theme-switch" onclick="toggleTheme()">
+        <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
+
     <div class="container">
         <aside class="sidebar">
-            <img src="a.li2.jpg" alt="علي ثامر كاظم" class="profile-img">
-            <h1>علي ثامر كاظم</h1>
+            <img src="a.li2.jpg" alt="علي ثامر" class="profile-img">
+            <h2>علي ثامر كاظم</h2>
             
-            <div class="info-box">
-                <div class="info-item">
-                    <small>الجامعة</small>
-                    <span>الجامعة التكنولوجية</span>
-                </div>
-                <div class="info-item">
-                    <small>الكلية والقسم</small>
-                    <span>علوم الحاسوب - نظم المعلومات</span>
-                </div>
-                <div class="info-item">
-                    <small>المحافظة</small>
-                    <span>[القادسية]</span>
-                </div>
+            <div class="info-card">
+                <small>المحافظة</small>
+                <p>القادسية</p>
+            </div>
+            <div class="info-card">
+                <small>الكلية / القسم</small>
+                <p>علوم الحاسوب / نظم المعلومات</p>
+            </div>
+            <div class="info-card">
+                <small>الجامعة</small>
+                <p>الجامعة التكنولوجية</p>
             </div>
 
-            <a href="https://wa.me/9647859176005" class="whatsapp-contact">
-                <i class="fab fa-whatsapp"></i>
-                <span>07859176005</span>
-            </a>
+            <div class="social-links">
+                <a href="https://wa.me/96478596005" class="social-item wa">
+                    <i class="fab fa-whatsapp"></i> <span>07859176005</span>
+                </a>
+                <a href="https://ig.me/alithamer960" class="social-item ig">
+                    <i class="fab fa-instagram"></i> <span>Instagram ID</span>
+                </a>
+                <a href="http://tg.me/@Ali2023yr18" class="social-item tg">
+                    <i class="fab fa-telegram"></i> <span>Telegram ID</span>
+                </a>
+            </div>
         </aside>
 
         <main class="main-content">
-            
             <section>
-                <h2 class="section-title">اللغات البرمجية</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <i class="fab fa-html5"></i>
-                        <h3>HTML</h3>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fab fa-css3-alt"></i>
-                        <h3>CSS</h3>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fab fa-js"></i>
-                        <h3>JavaScript</h3>
-                    </div>
-                    <div class="skill-card">
-                        <i class="fas fa-code"></i>
-                        <h3>C++</h3>
-                    </div>
+                <h3 class="title">اللغات البرمجية</h3>
+                <div class="grid">
+                    <div class="card"><i class="fab fa-html5"></i><h4>HTML</h4></div>
+                    <div class="card"><i class="fab fa-css3-alt"></i><h4>CSS</h4></div>
+                    <div class="card"><i class="fab fa-js"></i><h4>JavaScript</h4></div>
+                    <div class="card"><i class="fas fa-code"></i><h4>C++</h4></div>
                 </div>
             </section>
 
             <section>
-                <h2 class="section-title">إجادة العمل على البرامج التالية :</h2>
-                <div class="office-skills">
-                    <div class="tag">Microsoft Office (Excellent)</div>
-                    <div class="tag">Excel (Tables & Reports)</div>
-                    <div class="tag">PowerPoint (Presentations)</div>
-                    <div class="tag">Microsoft Project</div>
-                    <div class="tag">Microsoft Access</div>
-                </div>
-            </section>
-            <section>
-                <h2 class="section-title">الخبرة العملية</h2>
-                <div class="experience-card">
-                    <h3>متدرب لدى شركة Zain Iraq</h3>
-                    <p>تدريب عملي ميداني في واحدة من كبرى شركات الاتصالات، اكتساب مهارات إدارية وتقنية احترافية.</p>
+                <h3 class="title">المهارات المكتبية (MS Office)</h3>
+                <div class="tag-container">
+                    <span class="tag">إعداد التقارير</span>
+                    <span class="tag">العروض التقديمية (PPT)</span>
+                    <span class="tag">إدارة الجداول (Excel)</span>
+                    <span class="tag">Microsoft Project</span>
+                    <span class="tag">Microsoft Access</span>
                 </div>
             </section>
 
             <section>
-                <h2 class="section-title">الشهادات التقديرية</h2>
-                    <div class="certs-gallery">
-                    <div class="cert-card">
-                        <img src="cert1.jpg" alt="شهادة نظم المعلومات" width="50%" height="50%">
-                        <p style="text-align: center; margin-top: 5px;">مهرجان النظم البرمجية</p>
-                    </div>
-                    <div class="cert-card">
-                        <img src="cert2.jpg" alt="شهادة محاضرة بوت" width="50%" height="50%">
-                        <p style="text-align: center; margin-top: 5px;">محاضرة بوت مسعف</p>
-                    </div>
-                    <div class="cert-card">
-                        <img src="cert3.jpg" alt="شهادة الإرشاد الرقمي" width="50%" height="50%">
-                        <p style="text-align: center; margin-top: 5px;">ملتقى الإرشاد التربوي</p>
-                    </div>
+                <h3 class="title">الخبرة العملية</h3>
+                <div class="experience-box">
+                    <h4>متدرب لدى شركة Zain Iraq</h4>
+                    <p>تدريب ميداني في أنظمة الاتصالات وإدارة البيانات.</p>
                 </div>
             </section>
-
+            <section>
+                <h3 class="title">الشهادات التقديرية</h3>
+                <div class="certs-grid">
+                    <img src="cert1.jpg" alt="شهادة">
+                    <img src="cert2.jpg" alt="شهادة">
+                    <img src="cert3.jpg" alt="شهادة">
+                </div>
+            </section>
         </main>
     </div>
 
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+            }
+        }
+    </script>
 </body>
 </html>
