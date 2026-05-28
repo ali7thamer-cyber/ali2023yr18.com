@@ -6,7 +6,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* الخلفية الجديدة: تتنقل تلقائياً بين عدة ألوان مميزة */
 body {
     display: flex;
     justify-content: center;
