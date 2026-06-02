@@ -6,46 +6,34 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* تعيين صورة ثابتة للخلفية تغطي كامل الشاشة */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     
-    /* تصميم تدرج دائري يحاكي صورتك تماماً: أزرق مشع في المركز يتحول لأسود عند الأطراف */
-    background: radial-gradient(circle, #0011ff 0%, #000444 50%, #000000 100%);
-    background-size: 150% 150%;
-    
-    /* حركة نبض وتوسع انسيابية للألوان عند فتح الصفحة وباستمرار */
-    animation: royalBlueMove 8s ease-in-out infinite alternate;
+    /* استبدل background.jpg بمسار صورتك المفضلة */
+    background: url('q.jpg') no-repeat center center fixed;
+    background-size: cover; 
     
     color: #fff;
     padding: 20px;
-    overflow: hidden; /* لمنع ظهور أشرطة التمرير بسبب حركة الخلفية */
 }
 
-/* الخوارزمية المسؤولة عن تحريك وتوسيع التدرج الأزرق بشكل غامض وممتع */
-@keyframes royalBlueMove {
-    0% {
-        background-position: 50% 50%;
-        background-size: 130% 130%;
-    }
-    50% {
-        background-position: 45% 55%;
-        background-size: 160% 160%;
-    }
-    100% {
-        background-position: 55% 45%;
-        background-size: 140% 140%;
-    }
-}
-/* الحاوية الرئيسية في المنتصف */
+/* الحاوية الرئيسية في المنتصف (تأثير زجاجي شفاف) */
 .container {
     text-align: center;
     max-width: 400px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.08); /* تأثير زجاجي شفاف */
-    backdrop-filter: blur(10px);
+    
+    /* خلفية داكنة شفافة جداً بنسبة 20% لتبرز تفاصيل الصورة خلفها */
+    background: rgba(0, 0, 0, 0.2); 
+    
+    /* تأثير ضبابي بلوري لجمالية النص فوق الصورة */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 30px;
     border-radius: 24px;
@@ -62,8 +50,8 @@ body {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -75,13 +63,15 @@ body {
     margin-top: 15px;
     font-size: 1.5rem;
     font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* ظل خلف النص ليبقى واضحاً فوق الصورة */
 }
 
 .profile-card p {
     font-size: 0.9rem;
-    color: #e2e8f0;
+    color: #f1f5f9;
     margin-top: 5px;
-    opacity: 0.8;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* حاوية الأزرار */
@@ -91,42 +81,79 @@ body {
     gap: 15px;
 }
 
-/* التنسيق العام للأزرار */
+/* التنسيق العام للأزرار الشفافة الأسطوانية (Pill-shaped) */
 .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 14px;
-    border-radius: 12px;
+    
+    /* حواف دائرية أسطوانية بالكامل بناءً على تفضيلك */
+    border-radius: 40px; 
+    
     text-decoration: none;
     color: #fff;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    /* مظهر شفاف بلوري يمرر تفاصيل الخلفية */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* تأثير عند تمرير الماوس فوق الأزرار */
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-    filter: brightness(1.1);
-}
+/* ألوان الأزرار: خلفية شفافة بنسبة 15% مع إطار خارجي ملون ومرئي بكثافة عالية */
 
-/* ألوان الأزرار الخاصة بكل منصة */
+/* زر تليجرام الشفاف */
 .telegram {
-    background: #229ED9;
+    background-color: rgba(34, 158, 217, 0.15);
+    border: 2px solid #229ED9;
+}
+.telegram:hover {
+    background-color: rgba(34, 158, 217, 0.85);
+    box-shadow: 0 0 15px rgba(34, 158, 217, 0.5);
 }
 
+/* زر انستغرام الشفاف */
 .instagram {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background-color: rgba(220, 39, 67, 0.15);
+    border: 2px solid #dc2743;
+}
+.instagram:hover {
+    background: linear-gradient(45deg, rgba(240, 148, 51, 0.85) 0%, rgba(230, 104, 60, 0.85) 25%, rgba(220, 39, 67, 0.85) 50%, rgba(204, 35, 102, 0.85) 75%, rgba(188, 24, 136, 0.85) 100%);
+    box-shadow: 0 0 15px rgba(220, 39, 67, 0.5);
 }
 
+/* زر واتساب الشفاف */
 .whatsapp {
-    background: #25D366;
+    background-color: rgba(37, 211, 102, 0.15);
+    border: 2px solid #25D366;
+}
+.whatsapp:hover {
+    background-color: rgba(37, 211, 102, 0.85);
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
 }
 
+/* زر الإيميل الشفاف */
 .email {
-    background: #ea4335;
+    background-color: rgba(234, 67, 53, 0.15);
+    border: 2px solid #ea4335;
+}
+.email:hover {
+    background-color: rgba(234, 67, 53, 0.85);
+    box-shadow: 0 0 15px rgba(234, 67, 53, 0.5);
+}
+
+/* تأثير الحركة عند تمرير الماوس فوق أي زر */
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.98);
 }
