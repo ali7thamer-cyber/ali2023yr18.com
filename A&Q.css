@@ -74,17 +74,31 @@ body {
     opacity: 0.9;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
-/* الحاوية الرئيسية للملف الشخصي */
-.profile-card {
-    position: relative; /* لجعل التموضع المطلق للزر يعتمد عليها */
+
+/* تنسيق زر تبديل اللغة */
+.lang-switch-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
-/* زر اللغة */
-.language-btn {
-    position: absolute;
-    top: 20px;       /* المسافة من الأعلى */
-    left: 20px;      /* أو right: 20px; حسب اتجاه الموقع */
-    z-index: 10;     /* لضمان ظهوره فوق الخلفية والموجات */
+#lang-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+}
+
+#lang-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
 }
 
 /* حاوية الأزرار */
