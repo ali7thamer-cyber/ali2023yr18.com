@@ -74,6 +74,18 @@ body {
     opacity: 0.9;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
+/* الحاوية الرئيسية للملف الشخصي */
+.profile-card {
+    position: relative; /* لجعل التموضع المطلق للزر يعتمد عليها */
+}
+
+/* زر اللغة */
+.lang-toggle-btn{
+    position: absolute;
+    top: 20px;       /* المسافة من الأعلى */
+    left: 20px;      /* أو right: 20px; حسب اتجاه الموقع */
+    z-index: 10;     /* لضمان ظهوره فوق الخلفية والموجات */
+}
 
 /* حاوية الأزرار */
 .links-container {
