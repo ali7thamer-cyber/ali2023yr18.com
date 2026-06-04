@@ -17,6 +17,7 @@ document.getElementById('lang-toggle-btn').addEventListener('click', function() 
         document.getElementById('btn-instagram').innerHTML = '<i class="fab fa-instagram"></i> ' + document.getElementById('btn-instagram').getAttribute('data-en');
         document.getElementById('btn-whatsapp').innerHTML = '<i class="fab fa-whatsapp"></i> ' + document.getElementById('btn-whatsapp').getAttribute('data-en');
         document.getElementById('btn-email').innerHTML = '<i class="fas fa-envelope"></i> ' + document.getElementById('btn-email').getAttribute('data-en');
+        document.getElementById('btn-linkedin').innerHTML = '<i class="fab fa-linkedin-in"></i> ' + document.getElementById('btn-linkedin').getAttribute('data-en');
         
     } else {
         // العودة إلى اللغة العربية
@@ -33,5 +34,6 @@ document.getElementById('lang-toggle-btn').addEventListener('click', function() 
         document.getElementById('btn-instagram').innerHTML = '<i class="fab fa-instagram"></i> ' + document.getElementById('btn-instagram').getAttribute('data-ar');
         document.getElementById('btn-whatsapp').innerHTML = '<i class="fab fa-whatsapp"></i> ' + document.getElementById('btn-whatsapp').getAttribute('data-ar');
         document.getElementById('btn-email').innerHTML = '<i class="fas fa-envelope"></i> ' + document.getElementById('btn-email').getAttribute('data-ar');
+        document.getElementById('btn-linkedin').innerHTML = '<i class="fab fa-linkedin-in"></i> ' + document.getElementById('btn-linkedin').getAttribute('data-ar');
     }
 });
