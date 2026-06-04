@@ -80,7 +80,7 @@ body {
 }
 
 /* زر اللغة */
-.lang-toggle-btn{
+.language-btn {
     position: absolute;
     top: 20px;       /* المسافة من الأعلى */
     left: 20px;      /* أو right: 20px; حسب اتجاه الموقع */
